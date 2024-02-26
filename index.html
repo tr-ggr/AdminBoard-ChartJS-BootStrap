@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- =================== Contents =================== -->
+    <div class="navbar"></div>
+    <div class="welcome">
+      <h1 style="font-weight: bold">Welcome Admin_1!</h1>
+      <p style="width: 500px; font-size: 15px; color: #6c7a89">
+        Welcome to the admin dashboard for our resort and events place! This
+        centralized platform provides comprehensive insights..
+      </p>
+    </div>
+    <div class="containerAdmin">
+      <div class="bookingTrends chartCard">
+        <p style="font-size: xx-large; font-weight: bold">Booking Trends</p>
+        <div class="chartSize">
+          <canvas id="bookingTrendsChart"></canvas>
+        </div>
+      </div>
+
+      <div class="customerPreferences chartCard">
+        <p style="font-size: xx-large; font-weight: bold">
+          Customer Preferences
+        </p>
+        <div class="chartSize" style="height: 23rem; width: 100%">
+          <canvas id="customerPreferencesChart"></canvas>
+        </div>
+      </div>
+
+      <div class="Projections chartCard">
+        <p style="font-size: xx-large; font-weight: bold">
+          Revenue Projections
+        </p>
+        <div class="chartSize" style="height: 20rem; width: 100%">
+          <canvas id="projectionsChart"></canvas>
+        </div>
+      </div>
+
+      <div class="Occupancy chartCard">
+        <p style="font-size: xx-large; font-weight: bold">Occupancy Rates</p>
+        <div class="chartSize" style="height: 20rem; width: 100%">
+          <canvas id="occupancyChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- =================== scripts and chart generator =================== -->
+
+    <script>
+      // =================== Booking Trends chart ===================
+      new Chart(document.getElementById("bookingTrendsChart"), {
+        type: "bar",
+        data: {
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ],
+          datasets: [
+            {
+              label: "Number of Bookings",
+              data: [
+                150, 180, 220, 200, 250, 230, 240, 270, 280, 260, 230, 220,
+              ], // Replace these values with actual booking trend data
+              borderWidth: 1,
+              backgroundColor: "#c4a97d",
+            },
+          ],
+        },
+
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+
+      // =================== Customer Preferences Chart ===================
+
+      new Chart(document.getElementById("customerPreferencesChart"), {
+        type: "pie",
+        data: {
+          labels: [
+            "Dining Options",
+            "Recreational Activities",
+            "Room Features",
+          ],
+          datasets: [
+            {
+              label: "Customer Preferences",
+              data: [8, 7, 9], // Replace these values with actual customer preference scores
+              backgroundColor: ["#c4a97d", "#939b70", "#668a6e"],
+
+              borderWidth: 1,
+              hoverOffset: 4,
+            },
+          ],
+        },
+      });
+
+      // =================== Projections Chart ===================
+
+      new Chart(document.getElementById("projectionsChart"), {
+        type: "line",
+        data: {
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ],
+          datasets: [
+            {
+              label: "Revenue Projections",
+              data: [
+                50000, 55000, 60000, 65000, 70000, 72000, 74000, 76000, 78000,
+                80000, 82000, 84000,
+              ], // Replace these values with actual revenue projections
+              fill: true,
+              borderColor: "#cca772ff",
+              tension: 0.1,
+            },
+          ],
+        },
+      });
+
+      // =================== Occupancy Chart ===================
+
+      new Chart(document.getElementById("occupancyChart"), {
+        type: "line",
+        data: {
+          labels: [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ],
+          datasets: [
+            {
+              label: "Occupancy Rates",
+              data: [70, 75, 80, 85, 90, 85, 87, 88, 85, 80, 75, 70], // Replace these values with actual occupancy rates
+              fill: false,
+              borderColor: "#cca772ff",
+              tension: 0.1,
+            },
+          ],
+        },
+      });
+    </script>
+  </body>
+</html>
